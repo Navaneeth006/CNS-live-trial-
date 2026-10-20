@@ -1,0 +1,32 @@
+# =============================================================================
+# CSN.Live — 24/7 RTSP to YouTube Live Containerized Relay
+# =============================================================================
+FROM alpine:3.19
+
+# Install FFmpeg, Python 3, Bash, and network diagnostics tools
+RUN apk add --no-cache \
+    ffmpeg \
+    python3 \
+    bash \
+    netcat-openbsd \
+    curl \
+    tzdata
+
+# Set working directory
+WORKDIR /app
+
+# Copy relay scripts and configuration
+COPY stream_relay.py /app/stream_relay.py
+COPY stream_relay.sh /app/stream_relay.sh
+
+# Make scripts executable
+RUN chmod +x /app/stream_relay.py /app/stream_relay.sh
+
+# Default environment variables
+ENV PYTHONUNBUFFERED=1 \
+    RTSP_TRANSPORT=tcp \
+    INITIAL_BACKOFF_SEC=3 \
+    MAX_BACKOFF_SEC=60
+
+# Run stream relay with Python heartbeat monitor
+ENTRYPOINT ["python3", "/app/stream_relay.py"]

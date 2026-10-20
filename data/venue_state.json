@@ -1,0 +1,148 @@
+{
+  "tables": [
+    {
+      "id": 1,
+      "name": "Table 01",
+      "status": "playing",
+      "currentGameId": "game-1792394563486-1",
+      "lastActivity": 1792394890798,
+      "activeRemoteDeviceId": "dev-d5t6e4-mvexg0il",
+      "activeRemoteDeviceName": "Remote Browser (G0IL)",
+      "remoteClaimedAt": 1792394563486,
+      "remoteLastHeartbeat": 1792394890798,
+      "theme": "dark",
+      "cameraFeed": {
+        "aspectRatio": "16:9",
+        "enabled": true,
+        "name": "Overhead Cam • Arena Table 01",
+        "notes": "IP 192.168.1.101 • 1080p 30fps H.264",
+        "showScoreOverlay": true,
+        "type": "mp4",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Table 02",
+      "status": "available",
+      "currentGameId": null,
+      "lastActivity": 1790445317432,
+      "activeRemoteDeviceId": null,
+      "activeRemoteDeviceName": null,
+      "remoteClaimedAt": null,
+      "remoteLastHeartbeat": null
+    },
+    {
+      "id": 3,
+      "name": "Table 03",
+      "status": "available",
+      "currentGameId": null,
+      "lastActivity": 1790445300351,
+      "activeRemoteDeviceId": null,
+      "activeRemoteDeviceName": null,
+      "remoteClaimedAt": null,
+      "remoteLastHeartbeat": null
+    },
+    {
+      "id": 4,
+      "name": "Table 04",
+      "status": "available",
+      "currentGameId": null,
+      "lastActivity": 1790445300351,
+      "activeRemoteDeviceId": null,
+      "activeRemoteDeviceName": null,
+      "remoteClaimedAt": null,
+      "remoteLastHeartbeat": null
+    },
+    {
+      "id": 5,
+      "name": "Table 05",
+      "status": "available",
+      "currentGameId": null,
+      "lastActivity": 1790445300351,
+      "activeRemoteDeviceId": null,
+      "activeRemoteDeviceName": null,
+      "remoteClaimedAt": null,
+      "remoteLastHeartbeat": null
+    },
+    {
+      "id": 6,
+      "name": "Table 06",
+      "status": "available",
+      "currentGameId": null,
+      "lastActivity": 1790445300351,
+      "activeRemoteDeviceId": null,
+      "activeRemoteDeviceName": null,
+      "remoteClaimedAt": null,
+      "remoteLastHeartbeat": null
+    }
+  ],
+  "activeGames": {
+    "game-1792394563486-1": {
+      "activePlayerIndex": 1,
+      "currentRack": 1,
+      "fouls1": 0,
+      "fouls2": 0,
+      "gameType": "8-Ball",
+      "history": [
+        {
+          "id": "h-start-1792394563486",
+          "timestamp": 1792394563486,
+          "playerIndex": 0,
+          "change": 0,
+          "type": "game_start",
+          "score1After": 0,
+          "score2After": 0,
+          "actor": "Yuvaraja (Venue Mgr)"
+        }
+      ],
+      "id": "game-1792394563486-1",
+      "matchName": "8-Ball Match",
+      "player1": "ab",
+      "player2": "cd",
+      "playerTimerSeconds": 35,
+      "score1": 0,
+      "score2": 0,
+      "scoringMode": "frames",
+      "startTime": 1792394563486,
+      "status": "playing",
+      "tableId": 1,
+      "tableTimerMinutes": 45,
+      "targetScore": 7,
+      "totalPausedTime": 0,
+      "turnStartTime": 1792394828060
+    }
+  },
+  "history": [],
+  "players": [],
+  "activities": [
+    {
+      "id": "act-1792394563486-fsds",
+      "tableId": 1,
+      "action": "Game Started",
+      "timestamp": 1792394563486,
+      "details": "ab vs cd (8-Ball)",
+      "type": "game_started"
+    }
+  ],
+  "staffCalls": [],
+  "settings": {
+    "venueName": "CueControl Arena & Lounge",
+    "tableCount": 6,
+    "currency": "$",
+    "featuredTableId": 1,
+    "soundEffects": true,
+    "vibration": true,
+    "overlayStyle": "broadcast-top",
+    "showTimerOnOverlay": true,
+    "defaultGameType": "8-Ball",
+    "defaultTargetScore": 7,
+    "autoEndGame": true
+  },
+  "currentUser": {
+    "id": "admin-1",
+    "email": "admin@cuecontrol.venue",
+    "name": "Yuvaraja (Venue Mgr)",
+    "role": "admin"
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "entities": {
+    "Table": {
+      "title": "Table",
+      "description": "Physical billiards table with status, camera feeds, and theme",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number", "description": "Table identifier (1-6)" },
+        "name": { "type": "string", "description": "Table display name" },
+        "status": { "type": "string", "enum": ["available", "playing", "paused", "maintenance"] },
+        "currentGameId": { "type": "string", "description": "ID of active game" },
+        "notes": { "type": "string" },
+        "lastActivity": { "type": "number" },
+        "activeRemoteDeviceId": { "type": "string" },
+        "activeRemoteDeviceName": { "type": "string" },
+        "remoteClaimedAt": { "type": "number" },
+        "remoteLastHeartbeat": { "type": "number" },
+        "theme": { "type": "string", "enum": ["light", "dark"] },
+        "cameraFeed": { "type": "object" }
+      },
+      "required": ["id", "name", "status", "lastActivity"]
+    },
+    "Game": {
+      "title": "Game",
+      "description": "Match scoring, player data, timers, and history",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "tableId": { "type": "number" },
+        "gameType": { "type": "string" },
+        "scoringMode": { "type": "string" },
+        "player1": { "type": "string" },
+        "player2": { "type": "string" },
+        "score1": { "type": "number" },
+        "score2": { "type": "number" },
+        "targetScore": { "type": "number" },
+        "currentRack": { "type": "number" },
+        "fouls1": { "type": "number" },
+        "fouls2": { "type": "number" },
+        "status": { "type": "string", "enum": ["playing", "paused", "completed"] },
+        "startTime": { "type": "number" },
+        "endTime": { "type": "number" },
+        "winner": { "type": "string" },
+        "history": { "type": "array" },
+        "tableTimerMinutes": { "type": "number" },
+        "playerTimerSeconds": { "type": "number" },
+        "activePlayerIndex": { "type": "number" },
+        "turnStartTime": { "type": "number" }
+      },
+      "required": ["id", "tableId", "player1", "player2", "score1", "score2", "status", "startTime"]
+    },
+    "VenueSettings": {
+      "title": "VenueSettings",
+      "description": "Venue configuration, table count, and broadcast options",
+      "type": "object",
+      "properties": {
+        "venueName": { "type": "string" },
+        "tableCount": { "type": "number" },
+        "currency": { "type": "string" },
+        "featuredTableId": { "type": "number" },
+        "soundEffects": { "type": "boolean" },
+        "vibration": { "type": "boolean" },
+        "overlayStyle": { "type": "string" },
+        "showTimerOnOverlay": { "type": "boolean" },
+        "defaultGameType": { "type": "string" },
+        "defaultTargetScore": { "type": "number" },
+        "autoEndGame": { "type": "boolean" }
+      },
+      "required": ["venueName", "tableCount"]
+    },
+    "ActivityLog": {
+      "title": "ActivityLog",
+      "description": "Audit and telemetry activity log",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "tableId": { "type": "number" },
+        "action": { "type": "string" },
+        "timestamp": { "type": "number" },
+        "details": { "type": "string" },
+        "type": { "type": "string" }
+      },
+      "required": ["id", "tableId", "action", "timestamp", "details"]
+    },
+    "StaffCall": {
+      "title": "StaffCall",
+      "description": "Table assistance call for referees / staff",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "tableId": { "type": "number" },
+        "reason": { "type": "string" },
+        "timestamp": { "type": "number" },
+        "status": { "type": "string", "enum": ["pending", "resolved"] }
+      },
+      "required": ["id", "tableId", "reason", "timestamp", "status"]
+    }
+  },
+  "firestore": {
+    "/tables/{tableId}": {
+      "schema": "Table",
+      "description": "Real-time table states and camera feeds"
+    },
+    "/games/{gameId}": {
+      "schema": "Game",
+      "description": "Active and completed match records"
+    },
+    "/venue/settings": {
+      "schema": "VenueSettings",
+      "description": "Global venue settings"
+    },
+    "/activities/{activityId}": {
+      "schema": "ActivityLog",
+      "description": "Recent table activity telemetry"
+    },
+    "/staffCalls/{callId}": {
+      "schema": "StaffCall",
+      "description": "Floor referee and staff assistance calls"
+    }
+  }
+}

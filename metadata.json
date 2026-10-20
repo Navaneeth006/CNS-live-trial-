@@ -1,0 +1,6 @@
+{
+  "name": "CueControl",
+  "description": "Professional pool table management and live scoring platform with mobile QR scoring, TV scoreboard, and OBS stream overlay.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

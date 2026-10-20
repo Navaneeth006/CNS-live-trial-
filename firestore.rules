@@ -1,0 +1,44 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isValidTableId(tableId) {
+      return tableId.matches('^[0-9]+$');
+    }
+
+    // Tables collection: Real-time table states and camera feeds
+    match /tables/{tableId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Games collection: Active and completed matches
+    match /games/{gameId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Venue settings document
+    match /venue/{document=**} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Activities log collection
+    match /activities/{activityId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Staff assistance calls
+    match /staffCalls/{callId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Test connection doc
+    match /test/{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
